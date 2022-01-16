@@ -4,35 +4,37 @@ from .models import *
 
 
 class UserSerializer(ModelSerializer):
-    Model = User
-    fields = "__all__"
+    class Meta:
+        model = Member
+        fields = "__all__"
 
 
 class ShopSerializer(ModelSerializer):
-    Model = Shop
+    model = Shop
     fields = "__all__"
 
 
 class ItemSerializer(ModelSerializer):
-    Model = User
-    fields = "__all__"
+    class Meta:
+        model = Item
+        fields = "__all__"
 
 
 class ItemReviewSerializer(ModelSerializer):
-    Model = User
+    model = ItemReview
     fields = "__all__"
 
 
 class ShopReviewSerializer(ModelSerializer):
-    Model = User
+    model = ShopReview
     fields = "__all__"
 
 
 class ProductImageSerializer(ModelSerializer):
-    Model = User
+    model = ProductImage
     fields = "__all__"
 
 
 class OrderItemSerializer(ModelSerializer):
-    Model = User
+    model = OrderItem
     fields = "__all__"

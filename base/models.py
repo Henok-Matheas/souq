@@ -6,7 +6,7 @@ from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 from souq import settings
 
 
-class User(AbstractBaseUser):
+class Member(AbstractBaseUser):
     name = models.CharField(max_length=100)
     phone = models.CharField(max_length=15)
     email = models.EmailField(
