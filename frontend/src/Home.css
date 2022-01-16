@@ -1,0 +1,19 @@
+.Home__Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+  }
+
+  .Home__Row {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    flex-wrap: wrap;
+    z-index: 1;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
