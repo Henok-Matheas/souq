@@ -3,6 +3,8 @@ import Item from './item'
 import './Home.css'
 import './bootstrap.min.css'
 import Slider from './component/slider'
+import Footer from './component/Footer'
+import FlexImage from './component/FlexImage'
 
 
 
@@ -15,12 +17,7 @@ function Home() {
         <h1>Popular Shops</h1>
         <div className = "Home__Row">
         
-            
-        </div>
-        <h1>Find Shops by Catagory </h1> <a href='#'>See All </a>
-        <div className = "Home__Row">
-        
-            
+            <FlexImage/>
         </div>
     <h1>Trending Products</h1>
     <div className=''>
@@ -51,6 +48,7 @@ function Home() {
     </div>
     
     </div>
+    <Footer/>
         </div>
        
         
