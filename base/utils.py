@@ -6,27 +6,28 @@ from .serializers import *
 
 ############################# USER OBJECT #############################
 def getUsersList(request):
-    users = User.objects.all()
+    users = Member.objects.all()
     serializer = UserSerializer(users, many=True)
     return Response(serializer.data)
 
 
 def getUserDetail(request, pk):
-    user = User.objects.get(id=pk)
+    user = Member.objects.get(id=pk)
     serializer = UserSerializer(user, many=False)
     return Response(serializer.data)
 
 
 def createUser(request):
-    data = request.data
-    user = User.objects.create(body=data["body"])
+    data = request.user
+    user = Member.objects.create(data=request.data)
+
     serializer = UserSerializer(user, many=False)
     return Response(serializer.data)
 
 
 def updateUser(request, pk):
     data = request.data
-    user = User.objects.get(id=pk)
+    user = Member.objects.get(id=pk)
     serializer = UserSerializer(instance=user, data=data)
 
     if serializer.is_valid():
@@ -36,7 +37,7 @@ def updateUser(request, pk):
 
 
 def deleteUser(request, pk):
-    user = User.objects.get(id=pk)
+    user = Member.objects.get(id=pk)
     user.delete()
     return Response("Note was deleted!")
 
@@ -55,8 +56,7 @@ def getShopDetail(request, pk):
 
 
 def createShop(request):
-    data = request.data
-    shop = Shop.objects.create(body=data["body"])
+    shop = Shop.objects.create(data=request.data)
     serializer = ShopSerializer(shop, many=False)
     return Response(serializer.data)
 
@@ -92,8 +92,7 @@ def getItemDetail(request, pk):
 
 
 def createItem(request):
-    data = request.data
-    item = Item.objects.create(body=data["body"])
+    item = Item.objects.create(data=request.data)
     serializer = ItemSerializer(item, many=False)
     return Response(serializer.data)
 
@@ -129,8 +128,7 @@ def getItemReviewDetail(request, pk):
 
 
 def createItemReview(request):
-    data = request.data
-    itemReview = ItemReview.objects.create(body=data["body"])
+    itemReview = ItemReview.objects.create(data=request.data)
     serializer = ItemReviewSerializer(itemReview, many=False)
     return Response(serializer.data)
 
@@ -167,7 +165,9 @@ def getShopReviewDetail(request, pk):
 
 def createShopReview(request):
     data = request.data
-    shopReview = ShopReview.objects.create(body=data["body"])
+    shopReview = ShopReview.objects.create(
+        body=data["body"],
+    )
     serializer = ShopReviewSerializer(shopReview, many=False)
     return Response(serializer.data)
 
@@ -189,38 +189,38 @@ def deleteShopReview(request, pk):
     return Response("Note was deleted!")
 
 
-# ############################# ORDERITEM OBJECT #############################
-# def getOrderItemList(request):
-#     orderItems = OrderItem.objects.all()
-#     serializer = OrderItemSerializer(orderItems, many=True)
-#     return Response(serializer.data)
+############################# ORDERITEM OBJECT #############################
+def getOrderItemList(request):
+    orderItems = OrderItem.objects.all()
+    serializer = OrderItemSerializer(orderItems, many=True)
+    return Response(serializer.data)
 
 
-# def getOrderItemDetail(request, pk):
-#     user = User.objects.get(id=pk)
-#     serializer = UserSerializer(user, many=False)
-#     return Response(serializer.data)
+def getOrderItemDetail(request, pk):
+    orderItem = OrderItem.objects.get(id=pk)
+    serializer = OrderItemSerializer(orderItem, many=False)
+    return Response(serializer.data)
 
 
-# def createUser(request):
-#     data = request.data
-#     user = User.objects.create(body=data["body"])
-#     serializer = UserSerializer(user, many=False)
-#     return Response(serializer.data)
+def createOrderItem(request):
+    data = request.data
+    orderItem = OrderItem.objects.create(body=data["body"])
+    serializer = OrderItemSerializer(orderItem, many=False)
+    return Response(serializer.data)
 
 
-# def updateUser(request, pk):
-#     data = request.data
-#     user = User.objects.get(id=pk)
-#     serializer = UserSerializer(instance=user, data=data)
+def updateOrderItem(request, pk):
+    data = request.data
+    orderItem = OrderItem.objects.get(id=pk)
+    serializer = OrderItemSerializer(instance=orderItem, data=data)
 
-#     if serializer.is_valid():
-#         serializer.save()
+    if serializer.is_valid():
+        serializer.save()
 
-#     return serializer.data
+    return serializer.data
 
 
-# def deleteUser(request, pk):
-#     user = User.objects.get(id=pk)
-#     user.delete()
-#     return Response("Note was deleted!")
+def deleteOrderItem(request, pk):
+    orderItem = OrderItem.objects.get(id=pk)
+    orderItem.delete()
+    return Response("Note was deleted!")

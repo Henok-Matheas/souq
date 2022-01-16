@@ -228,137 +228,121 @@ def getUser(request, pk):
         return deleteUser(request, pk)
 
 
-# @api_view(["GET"])
-# def getUsers(request):
-#     users = User.objects.all()
-#     userSerialized = UserSerializer(users, many=True)
+############################## Shop OBJECT #############################
+@api_view(["GET", "POST"])
+def getShops(request):
 
-#     return Response(userSerialized.data)
-#     # shop
-#     shops = Shop.objects.all()
-#     shopSerializer = ShopSerializer(shops, many=True)
+    if request.method == "GET":
+        return getShopsList(request)
 
-#     # shopReview
-#     shopReviews = ShopReview.objects.all()
-#     shopReviewSerializer = ShopReviewSerializer(shopReviews, many=True)
-
-#     # item
-#     items = Item.objects.all()
-#     itemSerializer = Serializer(shops, many=True)
-
-#     itemReviews = ItemReview.objects.all()
-
-#     return Response()
+    if request.method == "POST":
+        return createShop(request)
 
 
-# @api_view(["GET"])
-# def getShops(request):
-#     # shop
-#     shops = Shop.objects.all()
-#     shopSerializer = ShopSerializer(shops, many=True)
+@api_view(["GET", "PUT", "DELETE"])
+def getShop(request, pk):
 
-#     # shopReview
-#     shopReviews = ShopReview.objects.all()
-#     shopReviewSerializer = ShopReviewSerializer(shopReviews, many=True)
+    if request.method == "GET":
+        return getShopDetail(request, pk)
 
-#     # item
-#     items = Item.objects.all()
-#     itemSerializer = ItemSerializer(shops, many=True)
+    if request.method == "PUT":
+        return updateShop(request, pk)
 
-#     itemReviews = ItemReview.objects.all()
-
-#     return Response()
+    if request.method == "DELETE":
+        return deleteShop(request, pk)
 
 
-# def getItems(request):
-#     # shop
-#     shops = Shop.objects.all()
-#     shopSerializer = ShopSerializer(shops, many=True)
+############################## Item OBJECT #############################
+@api_view(["GET", "POST"])
+def getItems(request):
 
-#     # shopReview
-#     shopReviews = ShopReview.objects.all()
-#     shopReviewSerializer = ShopReviewSerializer(shopReviews, many=True)
+    if request.method == "GET":
+        return getItemsList(request)
 
-#     # item
-#     items = Item.objects.all()
-#     itemSerializer = ItemSerializer(shops, many=True)
-
-#     itemReviews = ItemReview.objects.all()
-
-#     return Response()
+    if request.method == "POST":
+        return createItem(request)
 
 
-# @api_view(["GET"])
-# def getItemReview(request):
-#     # shop
-#     shops = Shop.objects.all()
-#     shopSerializer = ShopSerializer(shops, many=True)
+@api_view(["GET", "PUT", "DELETE"])
+def getItem(request, pk):
 
-#     # shopReview
-#     shopReviews = ShopReview.objects.all()
-#     shopReviewSerializer = ShopReviewSerializer(shopReviews, many=True)
+    if request.method == "GET":
+        return getItemDetail(request, pk)
 
-#     # item
-#     items = Item.objects.all()
-#     itemSerializer = ItemSerializer(shops, many=True)
+    if request.method == "PUT":
+        return updateItem(request, pk)
 
-#     itemReviews = ItemReview.objects.all()
-
-#     return Response()
+    if request.method == "DELETE":
+        return deleteItem(request, pk)
 
 
-# @api_view(["GET"])
-# def getShopReview(request):
-#     # shop
-#     shops = Shop.objects.all()
-#     shopSerializer = ShopSerializer(shops, many=True)
+############################## Item Review OBJECT #############################
+@api_view(["GET", "POST"])
+def getItemReviews(request):
 
-#     # shopReview
-#     shopReviews = ShopReview.objects.all()
-#     shopReviewSerializer = ShopReviewSerializer(shopReviews, many=True)
+    if request.method == "GET":
+        return getItemReviewList(request)
 
-#     # item
-#     items = Item.objects.all()
-#     itemSerializer = ItemSerializer(shops, many=True)
-
-#     itemReviews = ItemReview.objects.all()
-
-#     return Response()
+    if request.method == "POST":
+        return createItemReview(request)
 
 
-# @api_view(["GET"])
-# def getProductImage(request):
-#     # shop
-#     shops = Shop.objects.all()
-#     shopSerializer = ShopSerializer(shops, many=True)
+@api_view(["GET", "PUT", "DELETE"])
+def getItemReview(request, pk):
 
-#     # shopReview
-#     shopReviews = ShopReview.objects.all()
-#     shopReviewSerializer = ShopReviewSerializer(shopReviews, many=True)
+    if request.method == "GET":
+        return getItemReviewDetail(request, pk)
 
-#     # item
-#     items = Item.objects.all()
-#     itemSerializer = ItemSerializer(shops, many=True)
+    if request.method == "PUT":
+        return updateItemReview(request, pk)
 
-#     itemReviews = ItemReview.objects.all()
-
-#     return Response()
+    if request.method == "DELETE":
+        return deleteItemReview(request, pk)
 
 
-# @api_view(["GET"])
-# def getOrderItem(request):
-#     # shop
-#     shops = Shop.objects.all()
-#     shopSerializer = ShopSerializer(shops, many=True)
+##############################  Shop Review OBJECT #############################
+@api_view(["GET", "POST"])
+def getShopReviews(request):
 
-#     # shopReview
-#     shopReviews = ShopReview.objects.all()
-#     shopReviewSerializer = ShopReviewSerializer(shopReviews, many=True)
+    if request.method == "GET":
+        return getShopReviewList(request)
 
-#     # item
-#     items = Item.objects.all()
-#     itemSerializer = ItemSerializer(shops, many=True)
+    if request.method == "POST":
+        return createShopReview(request)
 
-#     itemReviews = ItemReview.objects.all()
 
-#     return Response()
+@api_view(["GET", "PUT", "DELETE"])
+def getShopReview(request, pk):
+
+    if request.method == "GET":
+        return getShopReviewDetail(request, pk)
+
+    if request.method == "PUT":
+        return updateShopReview(request, pk)
+
+    if request.method == "DELETE":
+        return deleteShopReview(request, pk)
+
+
+############################## ORDER ITEMS OBJECT #############################
+@api_view(["GET", "POST"])
+def getOrderItems(request):
+
+    if request.method == "GET":
+        return getOrderItemList(request)
+
+    if request.method == "POST":
+        return createOrderItem(request)
+
+
+@api_view(["GET", "PUT", "DELETE"])
+def getOrderItem(request, pk):
+
+    if request.method == "GET":
+        return getOrderItemDetail(request, pk)
+
+    if request.method == "PUT":
+        return updateOrderItem(request, pk)
+
+    if request.method == "DELETE":
+        return deleteOrderItem(request, pk)
