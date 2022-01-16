@@ -96,7 +96,7 @@ class ShopReview(models.Model):
 class ProductImage(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
-    image = models.ImageField()
+    image = models.ImageField(upload_to="media", null=True)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
 
 
