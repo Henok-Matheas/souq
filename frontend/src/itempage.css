@@ -1,0 +1,17 @@
+.images{
+    display: flex;
+    flex-direction: row;
+    margin: 5px 0 3px 0;
+}
+.img-thumbnail{
+    max-width: 100px;
+    padding: 2px;
+    margin: 2px;
+}
+.images{
+    max-width: max-content;
+    flex-wrap: wrap;
+}
+
+
+
