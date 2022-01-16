@@ -87,7 +87,7 @@ class ShopReview(models.Model):
     name = models.CharField(max_length=100)
     comment = models.CharField(max_length=250)
     rating = models.IntegerField()
-    Item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    shop = models.ForeignKey(Shop, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
